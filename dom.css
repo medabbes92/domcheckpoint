@@ -1,28 +1,52 @@
 .pompe{
-    margin : 100 px ;
+    margin : 100px ;
     padding: 100px;
+    width: 30% ;
+    border: solid 2px black;
 
 }
 
 .goutteur{
-    margin : 100 px ;
+    margin : 100px ;
     padding: 100px;
+    width: 30% ;
+    border: solid 2px black;
 
 }
 
 .tube{
-    margin : 100 px ;
+    margin : 100px ;
     padding: 100px;
+    width: 30% ;
+    border: solid 2px black;
 
 }
 
 .programmateur{
-    margin : 100 px ;
+    margin : 100px ;
     padding: 100px;
+    width: 30% ;
+    border: solid 2px black;
 
 }
-.montanttotal{
-    margin : 100 px ;
-    padding: 100px;
-
+.mttotal{
+    margin : 100px ;
+    padding: 100px; 
 }
+.red {
+    color: red;
+  }
+  h6{
+    font-size: x-large;
+    font-style: normal;
+  }
+  h1{
+    margin:150px;
+  }
+  
+    /* body{ */
+        /* background-image: url(https://cdn.hswstatic.com/gif/Irrigation.jpg); */
+        /* background-repeat: no-repeat; */
+        /* background-size: cover; */
+      /* } */
+  

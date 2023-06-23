@@ -1,69 +1,78 @@
-// Récupérer les éléments DOM
-const achatBtns = document.querySelectorAll('.achat');
-const annulationBtns = document.querySelectorAll('.annulation');
-const coeurBtns = document.querySelectorAll('.coeur');
-const deleteBtns = document.querySelectorAll('.x');
-const totalInput = document.getElementById('totalfin');
+// Récupérer tous les éléments contenant des boutons + et - ainsi que le champ total
+const quantitePlus = document.querySelectorAll('.achat');
+const quantiteMoins = document.querySelectorAll('.annulation');
+const boutonSupprimer = document.querySelectorAll('.supprimer');
+const boutonJadore = document.querySelectorAll('.coeur');
+const champsTotal = document.querySelectorAll('.total');
+const champMontantTotal = document.getElementById('sum');
 
-// Ajouter des écouteurs d'événements aux boutons d'achat
-achatBtns.forEach((btn) => {
-  btn.addEventListener('click', augmenterQuantite);
-});
 
-// Ajouter des écouteurs d'événements aux boutons d'annulation
-annulationBtns.forEach((btn) => {
-  btn.addEventListener('click', diminuerQuantite);
-});
+// var prix=[2000 , 1 , 600 , 500] on peut utiliser ce tableau pour identifier les prix de chaque article mais j'ai trouvé
+// une autre solution
 
-// Ajouter des écouteurs d'événements aux boutons de cœur
-coeurBtns.forEach((btn) => {
-  btn.addEventListener('click', changerCouleurCoeur);
-});
+// Ajouter des gestionnaires d'événements pour les boutons +
+quantitePlus.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    let counter = btn.parentNode.querySelector('.counter');
+    let total = btn.parentNode.querySelector('.total');
+    let prix = parseFloat(btn.parentNode.querySelector('p:nth-child(4)').textContent);
+    let quantite = parseInt(counter.textContent);
 
-// Ajouter des écouteurs d'événements aux boutons de suppression
-deleteBtns.forEach((btn) => {
-  btn.addEventListener('click', supprimerElement);
-});
+    quantite++;
 
-// Augmenter la quantité d'un élément
-function augmenterQuantite(event) {
-  const parentElement = event.target.parentNode;
-  const quantiteInput = parentElement.querySelector('.total');
-  const currentQuantite = parseInt(quantiteInput.value);
-  quantiteInput.value = currentQuantite + 1;
-  calculerTotal();
-}
+    counter.textContent = quantite;
+    total.value = quantite * prix;
 
-// Diminuer la quantité d'un élément
-function diminuerQuantite(event) {
-  const parentElement = event.target.parentNode;
-  const quantiteInput = parentElement.querySelector('.total');
-  const currentQuantite = parseInt(quantiteInput.value);
-  if (currentQuantite > 0) {
-    quantiteInput.value = currentQuantite - 1;
-    calculerTotal();
-  }
-}
-
-// Changer la couleur du cœur
-function changerCouleurCoeur(event) {
-  const coeurBtn = event.target;
-  coeurBtn.classList.toggle('liked');
-}
-
-// Supprimer un élément
-function supprimerElement(event) {
-  const parentElement = event.target.parentNode;
-  parentElement.parentNode.removeChild(parentElement);
-  calculerTotal();
-}
-
-// Calculer le montant total
-function calculerTotal() {
-  let total = 0;
-  const inputs = document.querySelectorAll('.total');
-  inputs.forEach((input) => {
-    total += parseInt(input.value);
+    calculateTotal();
   });
-  totalInput.value = total;
+});
+
+// Ajouter des gestionnaires d'événements pour les boutons -
+quantiteMoins.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    let counter = btn.parentNode.querySelector('.counter');
+    let total = btn.parentNode.querySelector('.total');
+    let prix = parseFloat(btn.parentNode.querySelector('p:nth-child(4)').textContent);
+    let quantite = parseInt(counter.textContent);
+
+    if (quantite > 0) {
+      quantite--;
+    }
+
+    counter.textContent = quantite;
+    total.value = quantite * prix;
+
+    calculateTotal();
+  });
+});
+
+// Ajouter des gestionnaires d'événements pour les boutons de suppression
+boutonSupprimer.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    const article = btn.parentNode;
+    article.parentNode.removeChild(article);
+
+    calculateTotal();
+  });
+});
+
+// Ajouter des gestionnaires d'événements pour les boutons "J'adore"
+boutonJadore.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('red');
+  });
+});
+
+// Fonction pour calculer le montant total
+function calculateTotal() {
+  let sum = 0;
+
+  champsTotal.forEach((champ) => {
+    sum += parseFloat(champ.value);
+  });
+
+  champMontantTotal.value = sum;
 }
+
+// Calculer le montant total initial au chargement de la page
+calculateTotal();

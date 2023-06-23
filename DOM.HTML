@@ -10,61 +10,70 @@
 
 <body>
 
+    <h1 style="color: red;"> Welcome to our Shopping Cart </h1>
+
     <div class="articel">
 <div class="pompe">
 <img src="/electropompe.jpg" alt="">
 <h6> Electropompe immergée</h6>
-<p> prix  </p> <p> 2000 </p>
+ 
+ <p> prix  </p>
+ <p> 2000 </p> 
 <button class="achat"> + </button>
-<button class="'annulation"> - </button>
-<button class="coeur"> ❤ </button>
-<button class="x"> x </button>
+<span class="counter">0</span>
+<button class="annulation"> - </button>
+<button class="coeur"  class="red"> ❤ </button>
+<button class="supprimer"> x </button>
 <input class="total" type="text" id="total" value="0"/>
+
     </div>
 
-<div class="goutteur">
-    <img src="/goutteur.jpg" alt="">
-    <h6> goutteur</h6> <p> 1 </p>
-    <p> prix  </p>
-    <button class="achat"> + </button>
-<button class="'annulation"> - </button>
-<button button class="coeur"> ❤ </button>
-<button class="x"> x </button>
+    <div class="goutteur">
+        <img src="/goutteur.jpg" alt="">
+        <h6> goutteur</h6>
+        <p> prix </p>
+         <p> 1 </p>
+        
+<button class="achat" > + </button>
+<span class="counter">0</span>
+<button class="annulation"> - </button>
+<button class="coeur" class="red"> ❤ </button>
+<button class="supprimer"> x </button>
 <input class="total" type="text" id="total" value="0"/>
-    </div>
+        </div>
 
 <div class="programmateur">
         <img src="/programmateur.jpg" alt="">
-        <h6> programmateur</h6> <p> 600 </p>
+        <h6> programmateur</h6> 
         <p> prix </p>
+        <p> 600 </p>
+        
 <button class="achat" > + </button>
-<button class="'annulation"> - </button>
-<button button class="coeur"> ❤ </button>
-<button class="x">  x </button>
+<span class="counter">0</span>
+<button class="annulation"> - </button>
+<button class="coeur"  class="red"> ❤ </button>
+<button class="supprimer"> x </button>
 <input class="total" type="text" id="total" value="0"/>
         </div>
 
- <div class="tube">
-            <img src="/tube azud 500 m.jpg" alt=""> <p> 500 </p>
-            <h6> Tube Azud 500 m</h6>
+        <div class="tube">
+            <img src="/tube azud 500 m.jpg" alt="">
+            <h6> Tube Azud</h6> 
             <p> prix </p>
-            <button class="achat"> + </button>
-<button class="'annulation"> - </button>
-<button button class="coeur"> ❤ </button>
-<button class="x"> x </button>
-<input class="total" type="text" id="total" value="0"/>
+            <p> 500 </p>
+    <button class="achat" > + </button>
+    <span class="counter">0</span>
+    <button class="annulation"> - </button>
+    <button class="coeur" class="red"> ❤ </button>
+    <button class="supprimer"> x </button>
+    <input class="total" type="text" id="total" value="0"/>
             </div>
 
-        </div>
+        <div class="mttotal">
 
-
-
-
-        <div class="montanttotal">
-
-            <h4> Montant Total = </h4>
-            <input type="text" id="totalfin" value="0"/>
-        </div>
+            <h4> Montant Toal = </h4>
+            <input class="sum" type="text" id="sum" value="0"/>
+   </div>
         <script src="/dom.js"></script>
 </body>
 </html>
